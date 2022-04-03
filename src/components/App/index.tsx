@@ -1,5 +1,11 @@
 import Header from "../Header";
+import MobileProduct from "../MobileProduct";
 
 export default function App() {
-  return <Header />;
+  return (
+    <>
+      <Header />
+      <MobileProduct />
+    </>
+  );
 }

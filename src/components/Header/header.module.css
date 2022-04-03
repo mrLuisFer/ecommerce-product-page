@@ -1,0 +1,29 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+}
+
+.menuIcon {
+  margin: 0 1rem;
+}
+
+.cartIcon {
+  margin-right: 1.3rem;
+}
+
+.alignCenter {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+}
+
+.cursorPointer {
+  cursor: pointer;
+}
