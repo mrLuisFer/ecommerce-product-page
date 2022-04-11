@@ -1,0 +1,39 @@
+.mobileProduct {
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.productImg {
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+}
+
+.carouselBtn {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: none;
+  background: var(--white);
+  height: 40px;
+  width: 40px;
+  padding: 0;
+  cursor: pointer;
+  user-select: none;
+}
+
+.carouselBtn img {
+  height: 15px;
+}
+
+.leftBtn {
+  left: 1rem;
+}
+
+.rightBtn {
+  right: 1rem;
+}
