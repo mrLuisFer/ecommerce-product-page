@@ -1,0 +1,20 @@
+.company {
+  font-weight: 700;
+  color: var(--orange);
+}
+
+.productTitle {
+  color: var(--dark-grayish-blue);
+  font-weight: 700;
+}
+
+.description {
+  color: var(--very-vark-blue);
+  font-weight: 400;
+}
+
+.priceContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
