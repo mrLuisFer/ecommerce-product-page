@@ -3,12 +3,20 @@ import logoIcon from "@/images/icons/logo.svg";
 import cartIcon from "@/images/icons/icon-cart.svg";
 import avatarImg from "@/images/image-avatar.png";
 import classes from "./header.module.css";
+import { Dispatch, SetStateAction } from "react";
 
-export default function Header() {
+interface HeaderProps {
+  setMobileMenu: Dispatch<SetStateAction<boolean>>;
+}
+
+export default function Header({ setMobileMenu }: HeaderProps) {
   return (
     <header className={classes.header}>
       <section className={classes.alignCenter}>
-        <div className={classes.cursorPointer}>
+        <div
+          className={classes.cursorPointer}
+          onClick={() => setMobileMenu(true)}
+        >
           <img src={menuIcon} alt="Menu Icon" className={classes.menuIcon} />
         </div>
         <div className={classes.cursorPointer}>
