@@ -1,0 +1,79 @@
+.priceContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.commonFlex {
+  display: flex;
+  align-items: center;
+}
+
+.price {
+  font-weight: 700;
+  font-size: 1.9rem;
+}
+
+.discount {
+  color: var(--orange);
+  padding: 0.3rem 0.5rem;
+  border-radius: 5px;
+  margin-left: 1rem;
+  background-color: var(--orange-bg);
+  font-weight: 700;
+}
+
+.oldPrice {
+  color: var(--grayish-blue);
+  text-decoration: line-through;
+  font-weight: 700;
+}
+
+.priceActionsContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--light-grayish-blue);
+  border-radius: 10px;
+  padding: 0.5rem 2rem;
+  margin-bottom: 1rem;
+}
+
+.commonBtn {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: var(--orange);
+  font-weight: 700;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.itemNumber {
+  font-weight: 700;
+  user-select: none;
+}
+
+.priceBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 1rem;
+  color: var(--white);
+  background-color: var(--orange);
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0px 3px 20px var(--orange);
+}
+
+.priceBtn:hover {
+  box-shadow: 0px 5px 25px var(--orange);
+}
+
+.priceBtn img {
+  margin-right: 1rem;
+}

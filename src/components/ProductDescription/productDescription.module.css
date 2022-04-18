@@ -1,20 +1,26 @@
+.descriptionContainer {
+  padding: 0.5rem 1rem;
+}
+
 .company {
   font-weight: 700;
   color: var(--orange);
+  margin-bottom: 0.5rem;
 }
 
 .productTitle {
   color: var(--dark-grayish-blue);
   font-weight: 700;
+  font-size: 1.6rem;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
 }
 
 .description {
-  color: var(--very-vark-blue);
+  /* color: var(--very-vark-blue); */
   font-weight: 400;
-}
-
-.priceContainer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  color: var(--black);
+  opacity: 0.65;
+  line-height: 1.5;
+  font-size: 0.95rem;
 }

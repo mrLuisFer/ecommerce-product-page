@@ -1,8 +1,9 @@
 import styles from "./productDescription.module.css";
+import PriceActions from "./PriceActions";
 
 export default function ProductDescription() {
   return (
-    <section>
+    <section className={styles.descriptionContainer}>
       <article>
         <p className={styles.company}>Sneaker Company</p>
         <h1 className={styles.productTitle}>Fall Limited Edition Sneakers</h1>
@@ -12,20 +13,7 @@ export default function ProductDescription() {
           the weather can offer.
         </p>
       </article>
-      <div className={styles.priceContainer}>
-        <div>
-          <h2>$125.00</h2>
-          <p>50%</p>
-        </div>
-        <span>$250.00</span>
-      </div>
-
-      <div>
-        <button>-</button>
-        <p>0</p>
-        <button>+</button>
-      </div>
-      <button>Add to cart</button>
+      <PriceActions />
     </section>
   );
 }

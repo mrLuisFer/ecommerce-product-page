@@ -4,6 +4,7 @@
   --desktop: 1440px;
   /* Colors */
   --orange: hsl(26, 100%, 55%);
+  --orange-bg: hsla(26, 100%, 55%, 0.164);
   --pale-orange: hsl(25, 100%, 94%);
 
   --very-vark-blue: hsl(220, 13%, 13%);

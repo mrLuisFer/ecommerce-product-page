@@ -1,12 +1,12 @@
 import Header from "../Header";
-import MobileProduct from "../MobileProduct";
+import CarouselMobileProduct from "../CarouselMobileProduct";
 import ProductDescription from "../ProductDescription";
 
 export default function App() {
   return (
     <>
       <Header />
-      <MobileProduct />
+      <CarouselMobileProduct />
       <ProductDescription />
     </>
   );
