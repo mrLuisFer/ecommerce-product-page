@@ -1,4 +1,3 @@
-import { createPortal } from "react-dom";
 import { useState } from "react";
 import menuIcon from "@/images/icons/icon-menu.svg";
 import logoIcon from "@/images/icons/logo.svg";
@@ -14,7 +13,6 @@ interface HeaderProps {
 
 export default function Header({ setMobileMenu }: HeaderProps) {
   const [showCartModal, setShowCartModal] = useState(false);
-  const cartModalElement = document.getElementById("cartModal")!;
 
   return (
     <>
@@ -46,7 +44,7 @@ export default function Header({ setMobileMenu }: HeaderProps) {
           </div>
         </section>
       </header>
-      {showCartModal && createPortal(<CartModal />, cartModalElement)}
+      {showCartModal && <CartModal />}
     </>
   );
 }
