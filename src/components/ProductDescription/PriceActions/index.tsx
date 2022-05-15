@@ -1,9 +1,17 @@
 import { useState } from "react";
 import styles from "./priceActions.module.css";
 import cartIcon from "@/images/icons/icon-cart-btn.svg";
+import { useCartContext } from "../../context/CartItemsCtx";
 
 export default function PriceActions() {
-  const [cartItem, setCartItem] = useState<number>(0);
+  const { itemsCounter, addItem, setAddItem, setItemsCounter } =
+    useCartContext();
+
+  const handleAddItem = () => {
+    if (itemsCounter > 0) {
+      setAddItem(true);
+    }
+  };
 
   return (
     <>
@@ -18,24 +26,26 @@ export default function PriceActions() {
       <div className={styles.priceActionsContainer}>
         <button
           className={styles.commonBtn}
-          disabled={!(cartItem > 0)}
+          disabled={!(itemsCounter > 0)}
           onClick={() =>
-            cartItem != 0 &&
-            cartItem > 0 &&
-            setCartItem((prevItem) => prevItem - 1)
+            itemsCounter != 0 &&
+            itemsCounter > 0 &&
+            setItemsCounter((prevCounter: number) => prevCounter - 1)
           }
         >
           -
         </button>
-        <p className={styles.itemNumber}>{cartItem}</p>
+        <p className={styles.itemNumber}>{itemsCounter}</p>
         <button
           className={styles.commonBtn}
-          onClick={() => setCartItem((prevItem) => prevItem + 1)}
+          onClick={() =>
+            setItemsCounter((prevCounter: number) => prevCounter + 1)
+          }
         >
           +
         </button>
       </div>
-      <button className={styles.priceBtn}>
+      <button className={styles.priceBtn} onClick={handleAddItem}>
         <img src={cartIcon} alt="Add to cart" />
         Add to cart
       </button>
