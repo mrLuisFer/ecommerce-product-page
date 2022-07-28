@@ -84,6 +84,14 @@
   outline: none;
   margin-left: 1.5rem;
   padding: 0;
+  cursor: pointer;
+  /* #C3CAD9 */
+  opacity: 0.3;
+  transition: 0.15s ease;
+}
+
+.productDeleteBtn:hover {
+  opacity: 1;
 }
 
 .checkoutBtn {

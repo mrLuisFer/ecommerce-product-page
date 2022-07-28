@@ -50,4 +50,22 @@
     padding: 0 0 0;
     margin-bottom: 4rem;
   }
+
+  .cartIconContainer {
+    position: relative;
+  }
+
+  .cartIconContainer::after {
+    content: attr(data-count);
+    position: absolute;
+    background: var(--orange);
+    color: var(--white);
+    padding: 0.1rem 0.3rem;
+    border-radius: 50%;
+    top: -10px;
+  }
+
+  .alignCenter {
+    gap: 2rem;
+  }
 }

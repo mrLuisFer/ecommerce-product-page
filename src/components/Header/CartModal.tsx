@@ -1,10 +1,16 @@
-import {useCartContext} from '../context/CartItemsCtx';
-import classes from './cartModal.module.css';
-import iconDelete from '@/images/icons/icon-delete.svg';
-import productThumbnail from '@/images/image-product-1-thumbnail.jpg';
-import type {ICartItemCtx} from '../context/CartItemsCtx';
+import { useCartContext } from "../context/CartItemsCtx";
+import classes from "./cartModal.module.css";
+import iconDelete from "@/images/icons/icon-delete.svg";
+import productThumbnail from "@/images/image-product-1-thumbnail.jpg";
+import type { ICartItemCtx } from "../context/CartItemsCtx";
 
-const ProductItem = ({itemsCounter}: ICartItemCtx) => {
+const ProductItem = ({ itemsCounter }: ICartItemCtx) => {
+  const { setItemsCounter } = useCartContext();
+
+  const handleDeleteCartItems = () => {
+    setItemsCounter(0);
+  };
+
   return (
     <section className={classes.productItemContainer}>
       <div className={classes.productItem}>
@@ -19,7 +25,11 @@ const ProductItem = ({itemsCounter}: ICartItemCtx) => {
             $125.00 x {itemsCounter} <span>${itemsCounter * 125}.00</span>
           </p>
         </div>
-        <button type="button" className={classes.productDeleteBtn}>
+        <button
+          type="button"
+          className={classes.productDeleteBtn}
+          onClick={handleDeleteCartItems}
+        >
           <img src={iconDelete} alt="Clear Cart" />
         </button>
       </div>
@@ -31,13 +41,14 @@ const ProductItem = ({itemsCounter}: ICartItemCtx) => {
 };
 
 export default function CartModal() {
-  const {addItem, itemsCounter, setAddItem, setItemsCounter} = useCartContext();
+  const { addItem, itemsCounter, setAddItem, setItemsCounter } =
+    useCartContext();
 
   return (
     <div className={classes.modalContainer}>
       <h2 className={classes.title}>Cart</h2>
       <div className={classes.cartItemsContainer}>
-        {addItem ? (
+        {addItem && itemsCounter > 0 ? (
           <ProductItem
             itemsCounter={itemsCounter}
             addItem={addItem}

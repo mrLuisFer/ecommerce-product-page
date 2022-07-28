@@ -7,6 +7,7 @@ import classes from "./header.module.css";
 import { Dispatch, SetStateAction } from "react";
 import CartModal from "./CartModal";
 import DesktopNav from "./DesktopNav";
+import { useCartContext } from "../context/CartItemsCtx";
 
 interface HeaderProps {
   setMobileMenu: Dispatch<SetStateAction<boolean>>;
@@ -14,6 +15,7 @@ interface HeaderProps {
 
 export default function Header({ setMobileMenu }: HeaderProps) {
   const [showCartModal, setShowCartModal] = useState(false);
+  const { itemsCounter } = useCartContext();
 
   return (
     <header className={classes.header}>
@@ -31,8 +33,11 @@ export default function Header({ setMobileMenu }: HeaderProps) {
       </section>
       <section className={classes.alignCenter}>
         <button
-          className={`${classes.btn} ${classes.cursorPointer}`}
+          className={`${classes.btn} ${classes.cursorPointer} ${
+            itemsCounter > 0 ? classes.cartIconContainer : ""
+          }`}
           onClick={() => setShowCartModal((prevState) => !prevState)}
+          data-count={itemsCounter}
         >
           <img src={cartIcon} alt="Add to Cart" className={classes.cartIcon} />
         </button>
