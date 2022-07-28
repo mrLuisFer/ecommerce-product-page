@@ -24,6 +24,12 @@
   display: inline-block;
   width: 40px;
   height: 40px;
+  border: 2px solid transparent;
+  border-radius: 50%;
+}
+
+.avatar:hover {
+  border: 2px solid var(--orange);
 }
 
 .cursorPointer {
