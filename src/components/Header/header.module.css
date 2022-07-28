@@ -5,7 +5,7 @@
   padding: 0.5rem 1rem;
 }
 
-.menuIcon {
+.menuIcon img {
   margin: 0 1rem 0 0;
   cursor: pointer;
 }
@@ -39,3 +39,14 @@
   padding: 0;
 }
 
+@media (min-width: 1000px) {
+  .menuIcon {
+    display: none;
+  }
+
+  .header {
+    border-bottom: 0.5px solid var(--grayish-blue);
+    padding: 0 0 0;
+    margin-bottom: 4rem;
+  }
+}

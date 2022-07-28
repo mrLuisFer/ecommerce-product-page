@@ -8,7 +8,6 @@ export default function MobileProduct() {
   const [imgIndex, setImgIndex] = useState<number>(0);
 
   const handleIncrementIndex = () => {
-    console.log(imgIndex);
     if (imgIndex < 3) {
       setImgIndex((prevImg) => prevImg + 1);
     } else setImgIndex(0);
@@ -20,25 +19,46 @@ export default function MobileProduct() {
     } else setImgIndex(3);
   };
 
+  const handleImgPreviewClicked = (index: number) => {
+    setImgIndex(index);
+  };
+
   return (
-    <section className={styles.mobileProduct}>
-      <button
-        className={`${styles.carouselBtn} ${styles.leftBtn}`}
-        onClick={handleDecrementIndex}
-      >
-        <img src={prevArrowIcon} alt="previous" />
-      </button>
-      <img
-        className={styles.productImg}
-        src={productImages[imgIndex]}
-        alt="Product thumbnail"
-      />
-      <button
-        className={`${styles.carouselBtn} ${styles.rightBtn}`}
-        onClick={handleIncrementIndex}
-      >
-        <img src={nextArrowIcon} alt="next" />
-      </button>
-    </section>
+    <div>
+      <section className={styles.mobileProduct}>
+        <button
+          className={`${styles.carouselBtn} ${styles.leftBtn}`}
+          onClick={handleDecrementIndex}
+        >
+          <img src={prevArrowIcon} alt="previous" />
+        </button>
+        <img
+          className={styles.productImg}
+          src={productImages[imgIndex]}
+          draggable="false"
+          alt="Product thumbnail"
+        />
+        <button
+          className={`${styles.carouselBtn} ${styles.rightBtn}`}
+          onClick={handleIncrementIndex}
+        >
+          <img src={nextArrowIcon} alt="next" />
+        </button>
+      </section>
+      <section className={styles.imagesContainer}>
+        {productImages.map((img, i) => (
+          <img
+            key={`img-${img}-${i}`}
+            src={img}
+            draggable="false"
+            className={`${styles.imgPreview} ${
+              i === imgIndex ? styles.active : ""
+            }`}
+            alt={`Image preview - No. ${i}`}
+            onClick={() => handleImgPreviewClicked(i)}
+          />
+        ))}
+      </section>
+    </div>
   );
 }

@@ -38,3 +38,48 @@
 .rightBtn {
   right: 1rem;
 }
+
+.imagesContainer {
+  display: none;
+}
+
+@media (min-width: 1000px) {
+  .carouselBtn {
+    display: none;
+  }
+
+  .productImg {
+    border-radius: 16px;
+  }
+
+  .imagesContainer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+  }
+
+  .imgPreview {
+    height: 80px;
+    width: 80px;
+    border: 3px solid transparent;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.1s ease;
+    user-select: none;
+    position: relative;
+  }
+
+  .imgPreview:hover {
+    filter: brightness(1.1);
+    border: 3px solid var(--orange);
+  }
+
+  .imgPreview:active {
+    transform: scale(0.95);
+  }
+
+  .active {
+    border: 3px solid var(--orange);
+    filter: brightness(1.1);
+  }
+}

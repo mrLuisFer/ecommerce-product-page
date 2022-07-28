@@ -6,6 +6,7 @@ import avatarImg from "@/images/image-avatar.png";
 import classes from "./header.module.css";
 import { Dispatch, SetStateAction } from "react";
 import CartModal from "./CartModal";
+import DesktopNav from './DesktopNav'
 
 interface HeaderProps {
   setMobileMenu: Dispatch<SetStateAction<boolean>>;
@@ -19,14 +20,15 @@ export default function Header({ setMobileMenu }: HeaderProps) {
       <header className={classes.header}>
         <section className={classes.alignCenter}>
           <div
-            className={classes.cursorPointer}
+            className={`${classes.cursorPointer} ${classes.menuIcon} `}
             onClick={() => setMobileMenu(true)}
           >
-            <img src={menuIcon} alt="Menu Icon" className={classes.menuIcon} />
+            <img src={menuIcon} alt="Menu Icon" draggable="false" />
           </div>
           <div className={classes.cursorPointer}>
             <img src={logoIcon} alt="Sneakers Logo" />
           </div>
+          <DesktopNav />
         </section>
         <section className={classes.alignCenter}>
           <button

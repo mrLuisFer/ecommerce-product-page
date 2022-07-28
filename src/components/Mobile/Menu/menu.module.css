@@ -1,3 +1,33 @@
-.mobileMenuContainer {
+.menuLayout {
   position: absolute;
+  z-index: 10;
+  display: flex;
+  inset: 0;
+}
+
+.mobileMenuContainer {
+  background: var(--white);
+  height: 100%;
+  padding: 2rem 1rem;
+  width: 50%;
+}
+
+.closeIcon {
+  margin-bottom: 2rem;
+}
+
+.menuList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menuList li {
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.menuShadow {
+  background: var(--black);
+  width: 50%;
 }

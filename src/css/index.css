@@ -7,13 +7,17 @@
   --orange-bg: hsla(26, 100%, 55%, 0.164);
   --pale-orange: hsl(25, 100%, 94%);
 
-  --very-vark-blue: hsl(220, 13%, 13%);
+  --very-dark-blue: hsl(220, 13%, 13%);
   --dark-grayish-blue: hsl(240, 4%, 5%);
   --grayish-blue: hsl(220, 14%, 75%);
   --light-grayish-blue: hsl(223, 64%, 98%);
   --white: hsl(0, 0%, 100%);
   /* - Black (with 75% opacity for lightbox background): hsl(0, 0%, 0%) */
   --black: hsla(0, 0%, 0%, 0.75);
+}
+
+*::selection {
+  background: var(--orange-bg);
 }
 
 html {

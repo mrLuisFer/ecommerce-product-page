@@ -1,0 +1,12 @@
+@media (min-width: 1000px) {
+  .container {
+    aspect-ratio: 16 / 9;
+    margin: 0 8rem 6rem;
+  }
+
+  .flex {
+    display: flex;
+    padding: 0 3rem;
+    column-gap: 5rem;
+  }
+}
