@@ -20,6 +20,7 @@
     line-height: 7;
     border-bottom: 5px solid transparent;
     transition: 0.15s ease;
+    cursor: pointer;
   }
 
   .list li:hover {
