@@ -108,7 +108,7 @@
   letter-spacing: 1px;
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 720px) {
   .modalContainer {
     left: auto;
     position: absolute;

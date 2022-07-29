@@ -1,8 +1,8 @@
 import { useState } from "react";
 import Header from "../Header";
-import CarouselMobileProduct from "../Mobile/CarouselProduct";
+import CarouselMobileProduct from "../CarouselProduct";
 import ProductDescription from "../ProductDescription";
-import MobileMenu from "../Mobile/Menu";
+import MobileMenu from "../Menu";
 import CartContextProvider from "../context/CartItemsCtx";
 import styles from "./app.module.css";
 
