@@ -3,6 +3,7 @@ import classes from "./cartModal.module.css";
 import iconDelete from "@/images/icons/icon-delete.svg";
 import productThumbnail from "@/images/image-product-1-thumbnail.jpg";
 import type { ICartItemCtx } from "../context/CartItemsCtx";
+import { forwardRef, useState, useRef, useEffect, RefObject } from "react";
 
 const ProductItem = ({ itemsCounter }: ICartItemCtx) => {
   const { setItemsCounter } = useCartContext();
@@ -40,12 +41,25 @@ const ProductItem = ({ itemsCounter }: ICartItemCtx) => {
   );
 };
 
-export default function CartModal() {
+const CartModal = forwardRef<RefObject<HTMLElement>, any>(({ setShowCartModal }, ref) => {
   const { addItem, itemsCounter, setAddItem, setItemsCounter } =
     useCartContext();
 
+  const handleClickOutside = (event: any) => {
+    if (ref.current && !ref.current.contains(event.target)) {
+      setShowCartModal(false);
+    }
+    return;
+  };
+
+  useEffect(() => {
+    document.addEventListener("click", handleClickOutside, true);
+    return () =>
+      document.removeEventListener("click", handleClickOutside, true);
+  });
+
   return (
-    <div className={classes.modalContainer}>
+    <div className={classes.modalContainer} ref={ref}>
       <h2 className={classes.title}>Cart</h2>
       <div className={classes.cartItemsContainer}>
         {addItem && itemsCounter > 0 ? (
@@ -61,4 +75,6 @@ export default function CartModal() {
       </div>
     </div>
   );
-}
+});
+
+export default CartModal;

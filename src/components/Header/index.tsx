@@ -1,13 +1,13 @@
-import { useState } from "react";
 import menuIcon from "@/images/icons/icon-menu.svg";
 import logoIcon from "@/images/icons/logo.svg";
 import cartIcon from "@/images/icons/icon-cart.svg";
 import avatarImg from "@/images/image-avatar.png";
 import classes from "./header.module.css";
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, RefObject, SetStateAction } from "react";
 import CartModal from "./CartModal";
 import DesktopNav from "./DesktopNav";
 import { useCartContext } from "../context/CartItemsCtx";
+import { useState, createRef } from "react";
 
 interface HeaderProps {
   setMobileMenu: Dispatch<SetStateAction<boolean>>;
@@ -16,6 +16,8 @@ interface HeaderProps {
 export default function Header({ setMobileMenu }: HeaderProps) {
   const [showCartModal, setShowCartModal] = useState(false);
   const { itemsCounter } = useCartContext();
+
+  const modalRef: RefObject<HTMLElement> = createRef<HTMLElement>();
 
   return (
     <header className={classes.header}>
@@ -45,7 +47,7 @@ export default function Header({ setMobileMenu }: HeaderProps) {
           <img src={avatarImg} alt="Avatar" className={classes.avatar} />
         </div>
       </section>
-      {showCartModal && <CartModal />}
+      {showCartModal && <CartModal ref={modalRef} setShowCartModal={setShowCartModal} />}
     </header>
   );
 }
