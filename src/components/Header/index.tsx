@@ -3,11 +3,12 @@ import logoIcon from "@/images/icons/logo.svg";
 import cartIcon from "@/images/icons/icon-cart.svg";
 import avatarImg from "@/images/image-avatar.png";
 import classes from "./header.module.css";
-import { Dispatch, RefObject, SetStateAction } from "react";
+import type { Dispatch, SetStateAction } from "react";
 import CartModal from "./CartModal";
 import DesktopNav from "./DesktopNav";
 import { useCartContext } from "../context/CartItemsCtx";
-import { useState, createRef } from "react";
+import { useState } from "react";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 
 interface HeaderProps {
   setMobileMenu: Dispatch<SetStateAction<boolean>>;
@@ -17,10 +18,10 @@ export default function Header({ setMobileMenu }: HeaderProps) {
   const [showCartModal, setShowCartModal] = useState(false);
   const { itemsCounter } = useCartContext();
 
-  const modalRef: RefObject<HTMLElement> = createRef<HTMLElement>();
+  const [headerRef] = useAutoAnimate<HTMLElement>();
 
   return (
-    <header className={classes.header}>
+    <header className={classes.header} ref={headerRef}>
       <section className={classes.alignCenter}>
         <div
           className={`${classes.cursorPointer} ${classes.menuIcon} `}
@@ -36,8 +37,8 @@ export default function Header({ setMobileMenu }: HeaderProps) {
       <section className={classes.alignCenter}>
         <button
           className={`${classes.btn} ${classes.cursorPointer} ${
-            itemsCounter > 0 ? classes.cartIconContainer : ""
-          }`}
+            showCartModal ? classes.cartBorderActive : ""
+          } ${itemsCounter > 0 ? classes.cartIconContainer : ""}`}
           onClick={() => setShowCartModal((prevState) => !prevState)}
           data-count={itemsCounter}
         >
@@ -47,7 +48,7 @@ export default function Header({ setMobileMenu }: HeaderProps) {
           <img src={avatarImg} alt="Avatar" className={classes.avatar} />
         </div>
       </section>
-      {showCartModal && <CartModal ref={modalRef} setShowCartModal={setShowCartModal} />}
+      {showCartModal && <CartModal />}
     </header>
   );
 }

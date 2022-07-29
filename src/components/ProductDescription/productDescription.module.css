@@ -25,15 +25,32 @@
   font-size: 0.95rem;
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 720px) {
   .company {
     font-size: 1.1rem;
     letter-spacing: 1.2px;
+  }
+
+  .productTitle {
+    font-size: 2rem;
+  }
+
+  .description {
+    max-width: 400px;
+  }
+}
+
+@media (min-width: 1000px) {
+  .company {
     margin-bottom: 1rem;
   }
 
   .productTitle {
     font-size: 2.2rem;
     margin-bottom: 1.5rem;
+  }
+
+  .description {
+  max-width: 800px;
   }
 }

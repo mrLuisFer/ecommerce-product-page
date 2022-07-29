@@ -12,7 +12,7 @@ export default function MobileMenu({ setMobileMenu }: MenuProps) {
 
   const handleCloseMenu = () => {
     setMobileMenu(false);
-    body.style.overflowY = "auto"
+    body.style.overflowY = "auto";
   };
 
   return (

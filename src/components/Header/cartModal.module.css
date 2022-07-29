@@ -113,8 +113,8 @@
     left: auto;
     position: absolute;
     width: fit-content;
-    right: 0;
-    top: 80px;
+    right: 2rem;
+    top: 60px;
     box-shadow: 0 3px 15px var(--grayish-blue);
     border-radius: 15px;
   }
@@ -130,5 +130,12 @@
 
   .checkoutBtn:hover {
     filter: brightness(1.1);
+  }
+}
+
+@media (min-width: 1000px) {
+  .modalContainer {
+    right: 0;
+    top: 80px;
   }
 }

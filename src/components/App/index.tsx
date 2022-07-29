@@ -5,12 +5,15 @@ import ProductDescription from "../ProductDescription";
 import MobileMenu from "../Menu";
 import CartContextProvider from "../context/CartItemsCtx";
 import styles from "./app.module.css";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 
 export default function App() {
   const [mobileMenu, setMobileMenu] = useState<boolean>(false);
+  const [parent] = useAutoAnimate<HTMLElement>();
+
   return (
     <CartContextProvider>
-      <div className={styles.container}>
+      <div className={styles.container} ref={parent}>
         <Header setMobileMenu={setMobileMenu} />
         {mobileMenu && <MobileMenu setMobileMenu={setMobileMenu} />}
         <div className={styles.flex}>

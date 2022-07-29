@@ -3,7 +3,7 @@ import classes from "./cartModal.module.css";
 import iconDelete from "@/images/icons/icon-delete.svg";
 import productThumbnail from "@/images/image-product-1-thumbnail.jpg";
 import type { ICartItemCtx } from "../context/CartItemsCtx";
-import { forwardRef, useState, useRef, useEffect, RefObject } from "react";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 
 const ProductItem = ({ itemsCounter }: ICartItemCtx) => {
   const { setItemsCounter } = useCartContext();
@@ -41,27 +41,30 @@ const ProductItem = ({ itemsCounter }: ICartItemCtx) => {
   );
 };
 
-const CartModal = forwardRef<RefObject<HTMLElement>, any>(({ setShowCartModal }, ref) => {
+const CartModal = () => {
   const { addItem, itemsCounter, setAddItem, setItemsCounter } =
     useCartContext();
+  const [itemContainerRef] = useAutoAnimate<HTMLElement>();
 
-  const handleClickOutside = (event: any) => {
-    if (ref.current && !ref.current.contains(event.target)) {
-      setShowCartModal(false);
-    }
-    return;
-  };
+  /*
+    const handleClickOutside = (event: any) => {
+      if (ref.current && !ref.current.contains(event.target)) {
+        setShowCartModal(false);
+      }
+      return;
+    };
 
-  useEffect(() => {
-    document.addEventListener("click", handleClickOutside, true);
-    return () =>
-      document.removeEventListener("click", handleClickOutside, true);
-  });
+    useEffect(() => {
+      document.addEventListener("click", handleClickOutside, true);
+      return () =>
+        document.removeEventListener("click", handleClickOutside, true);
+    });
+    */
 
   return (
-    <div className={classes.modalContainer} ref={ref}>
+    <div className={classes.modalContainer}>
       <h2 className={classes.title}>Cart</h2>
-      <div className={classes.cartItemsContainer}>
+      <div className={classes.cartItemsContainer} ref={itemContainerRef}>
         {addItem && itemsCounter > 0 ? (
           <ProductItem
             itemsCounter={itemsCounter}
@@ -75,6 +78,6 @@ const CartModal = forwardRef<RefObject<HTMLElement>, any>(({ setShowCartModal },
       </div>
     </div>
   );
-});
+};
 
 export default CartModal;

@@ -1,16 +1,16 @@
 import styles from "./priceActions.module.css";
 import cartIcon from "@/images/icons/icon-cart-btn.svg";
 import { useCartContext } from "../../context/CartItemsCtx";
-import {useState} from 'react'
+import { useState } from "react";
 
 export default function PriceActions() {
   const { itemsCounter, setAddItem, setItemsCounter } = useCartContext();
-  const [items, setItems] = useState<number>(0)
+  const [items, setItems] = useState<number>(0);
 
   const handleAddItem = () => {
     if (items > 0) {
       setAddItem(true);
-      setItemsCounter((prevItemsCount: number) => prevItemsCount + items)
+      setItemsCounter((prevItemsCount: number) => prevItemsCount + items);
     }
   };
 
@@ -19,7 +19,6 @@ export default function PriceActions() {
   };
 
   const handleDecreaseItem = () => {
-    console.log(items)
     if (items !== 0 && items > 0)
       setItems((prevCounter: number) => prevCounter - 1);
   };
