@@ -18,7 +18,7 @@ export default function Header({ setMobileMenu }: HeaderProps) {
   const [showCartModal, setShowCartModal] = useState(false);
   const { itemsCounter } = useCartContext();
 
-  const [headerRef] = useAutoAnimate<HTMLElement>();
+  const [headerRef] = useAutoAnimate<any>();
 
   return (
     <header className={classes.header} ref={headerRef}>

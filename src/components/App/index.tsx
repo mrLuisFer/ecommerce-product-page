@@ -9,7 +9,7 @@ import { useAutoAnimate } from "@formkit/auto-animate/react";
 
 export default function App() {
   const [mobileMenu, setMobileMenu] = useState<boolean>(false);
-  const [parent] = useAutoAnimate<HTMLElement>();
+  const [parent] = useAutoAnimate<any>();
 
   return (
     <CartContextProvider>

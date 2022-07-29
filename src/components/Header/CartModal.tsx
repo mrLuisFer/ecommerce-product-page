@@ -44,22 +44,7 @@ const ProductItem = ({ itemsCounter }: ICartItemCtx) => {
 const CartModal = () => {
   const { addItem, itemsCounter, setAddItem, setItemsCounter } =
     useCartContext();
-  const [itemContainerRef] = useAutoAnimate<HTMLElement>();
-
-  /*
-    const handleClickOutside = (event: any) => {
-      if (ref.current && !ref.current.contains(event.target)) {
-        setShowCartModal(false);
-      }
-      return;
-    };
-
-    useEffect(() => {
-      document.addEventListener("click", handleClickOutside, true);
-      return () =>
-        document.removeEventListener("click", handleClickOutside, true);
-    });
-    */
+  const [itemContainerRef] = useAutoAnimate<any>();
 
   return (
     <div className={classes.modalContainer}>
